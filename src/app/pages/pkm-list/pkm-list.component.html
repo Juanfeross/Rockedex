@@ -1,0 +1,10 @@
+<div class="pkm" *ngFor="let pkmn of (addPkm | orderlist)">
+  <p>{{pkmn.id}}</p>
+  <div class="image">
+    <a>
+      <img [src]="pkmn.sprites.front_default" alt="">
+    </a>
+  </div>
+</div>
+
+
