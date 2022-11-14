@@ -1,0 +1,7 @@
+.my-image:hover {
+  fill:red;
+}
+
+input[type="checkbox"]:checked + .my-image {
+  fill:red;
+}

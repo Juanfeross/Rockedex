@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PkmService } from '../../shared/services/pkm-service/pkm.service';
 import { IPokemon } from '../../shared/interfaces/pkm-interface/pkm-interface';
-import { debounceTime } from 'rxjs';
 
 @Component({
   selector: 'app-pkm-list',
@@ -19,9 +18,19 @@ public tempAddPkm: IPokemon[] = [];
       response => {
         response.results.forEach(element => {
           this.getPkmDetail(element.url);
+          console.log(this.getPkmOrder());
         });
       }
     )
+  }
+
+  public addLeadingZeros(num: number, totalLength: number) {
+    return String(num).padStart(totalLength, '0');
+  }
+
+  public firstLetterUpperCase(name: string) {
+    const nameUpper = name.charAt(0).toUpperCase() + name.slice(1);
+    return nameUpper;
   }
 
   private getPkmDetail(url: string = '') {
@@ -29,7 +38,6 @@ public tempAddPkm: IPokemon[] = [];
       response => {
         this.tempAddPkm.push(response);
         this.addPkm = this.getPkmOrder();
-        console.log(this.getPkmOrder());
       }
     )
   }

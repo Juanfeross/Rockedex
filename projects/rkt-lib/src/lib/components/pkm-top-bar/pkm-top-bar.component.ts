@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'lib-pkm-top-bar',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pkm-top-bar.component.css']
 })
 export class PkmTopBarComponent implements OnInit {
+@Input() logo: string = '';
 
   constructor() { }
 

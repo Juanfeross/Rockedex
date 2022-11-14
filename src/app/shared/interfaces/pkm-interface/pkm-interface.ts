@@ -11,11 +11,20 @@ export interface IPokemon {
 
 export interface IPkmSprites {
   front_default: string;
+  other: IPkmArtwork;
+}
+
+export interface IPkmArtwork {
+  "official-artwork": IArtFront;
+}
+
+export interface IArtFront {
+  front_default: string;
 }
 
 export interface IPkmType {
   slot: number;
-  type: IType[];
+  type: IType;
 }
 
 export interface IType {

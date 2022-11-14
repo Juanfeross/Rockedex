@@ -12,8 +12,8 @@ export class PkmService {
 
   constructor(private http: HttpClient) {}
 
-  public getPokemon(url: string = 'pokemon', page: number = 980):Observable <IPokemonResults<IPokemon[]>> {
-    const path = environment.baseUrlAPI + url + '?limit=12';
+  public getPokemon(url: string = 'pokemon', page: number = 0):Observable <IPokemonResults<IPokemon[]>> {
+    const path = environment.baseUrlAPI + url + '?limit=12&offset=' + page;
     return this.http.get<IPokemonResults<IPokemon[]>>(path);
   }
 
