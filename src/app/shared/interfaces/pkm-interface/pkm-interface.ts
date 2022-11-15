@@ -3,7 +3,6 @@ export interface IPokemon {
   name: string;
   url: string;
   height: number;
-  order: number;
   weight: number;
   sprites: IPkmSprites;
   types: IPkmType[];

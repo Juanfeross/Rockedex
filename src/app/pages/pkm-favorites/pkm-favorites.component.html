@@ -1,1 +1,13 @@
-<p>pkm-favorites works!</p>
+<div class="sm-desktop:px-[77px]">
+  <div class="px-4 pt-[19px] tablet:flex tablet:justify-between tablet:pt-[25px]">
+    <div class="px-[25px] flex flex-row items-center">
+      <app-pkm-back class="mr-4 pb-[18px] tablet:pb-0 sm-desktop:pb-0"></app-pkm-back>
+      <h1 class="font-bold text-[32px] leading-[42.56px] pb-[18px] tablet:pb-0 sm-desktop:pb-0">Favoritos</h1>
+    </div>
+  </div>
+  <div class="grid grid-cols-12 gap-4 p-4 tablet:pt-[27px] sm-desktop:pt-[25px]">
+    <ng-container *ngFor="let pkm of pokemonFavList">
+      <app-pkm-cards class="col-span-6 desktop:col-span-4" [pkm]="pkm" (click)="refresh()"></app-pkm-cards>
+    </ng-container>
+  </div>
+</div>

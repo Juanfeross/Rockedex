@@ -1,8 +1,9 @@
 .my-image:hover {
-  fill:red;
+  fill:#EF4444;
   cursor:pointer;
+  transform: scale(1.1);
 }
 
 input[type="checkbox"]:checked + .my-image {
-  fill:red;
+  fill:#EF4444;
 }
