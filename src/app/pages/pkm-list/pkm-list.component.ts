@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PkmService } from '../../shared/services/pkm-service/pkm.service';
 import { IPokemon } from '../../shared/interfaces/pkm-interface/pkm-interface';
+import { PkmSearchService } from 'src/app/shared/services/pkm-search/pkm-search.service';
 
 @Component({
   selector: 'app-pkm-list',
@@ -11,7 +12,7 @@ export class PkmListComponent implements OnInit {
 public addPkm: IPokemon[] = [];
 public tempAddPkm: IPokemon[] = [];
 
-  constructor(private pkmService: PkmService) { }
+  constructor(private pkmService: PkmService, private pkmSearchService: PkmSearchService) { }
 
   ngOnInit(): void {
     this.pkmService.getPokemon().subscribe(
@@ -19,6 +20,15 @@ public tempAddPkm: IPokemon[] = [];
         response.results.forEach(element => {
           this.getPkmDetail(element.url);
         });
+      }
+    )
+    this.getPkmSearch();
+  }
+
+  private getPkmSearch() {
+    this.pkmSearchService.OnSearch.subscribe(
+      response => {
+        this.getPkmDetail(response);
       }
     )
   }

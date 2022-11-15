@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PkmListComponent } from '../../../pages/pkm-list/pkm-list.component';
+import { Router } from '@angular/router';
+import { PkmSearchService } from '../../services/pkm-search/pkm-search.service';
 
 @Component({
   selector: 'app-pkm-search',
@@ -8,9 +9,19 @@ import { PkmListComponent } from '../../../pages/pkm-list/pkm-list.component';
 })
 export class PkmSearchComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router, private pkmSearchService: PkmSearchService) { }
 
   ngOnInit(): void {
+  }
+
+  onSearch(value:string) {
+    if (value && value.length > 3) {
+      this.pkmSearchService.search(value);
+    }
+
+    else {
+      this.pkmSearchService.search('');
+    }
   }
 
 }
