@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PkmTypesComponent } from './pkm-types.component';
+import { PkmDetailsComponent } from './pkm-details.component';
 
-describe('PkmTypesComponent', () => {
-  let component: PkmTypesComponent;
-  let fixture: ComponentFixture<PkmTypesComponent>;
+describe('PkmDetailsComponent', () => {
+  let component: PkmDetailsComponent;
+  let fixture: ComponentFixture<PkmDetailsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PkmTypesComponent ]
+      declarations: [ PkmDetailsComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PkmTypesComponent);
+    fixture = TestBed.createComponent(PkmDetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

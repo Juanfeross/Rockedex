@@ -1,0 +1,27 @@
+<div>
+  <div class="pt-6 px-[25px]">
+    <app-pkm-back></app-pkm-back>
+  </div>
+  <div class="pt-2 pb-[50px] px-4">
+    <div class="flex justify-center">
+      <img class="w-[222px] h-[222px]" [src]="pkmDetails?.sprites?.other?.['official-artwork']?.front_default" alt="">
+    </div>
+    <div class="bg-white px-4 pt-4 pb-6">
+      <h2 class="font-bold text-[32px] leading-[42.56px]">{{pkmDetails?.name| titlecase}}</h2>
+      <div class="inline-block bg-[#E5E7EB] px-2 py-1 rounded mt-2 mr-1" *ngFor="let type of pkmDetails?.types">
+        <p class="font-normal text-[14px] leading-[19px]">{{type.type.name | titlecase}}</p>
+      </div>
+      <div>
+        <p>{{description}}</p>
+        <p class="font-normal text-[16px] leading-[21px]">ID: {{pkmDetails?.id}}</p>
+        <p class="font-normal text-[16px] leading-[21px]">Altura: {{pkmDetails?.height}} ft</p>
+        <p class="font-normal text-[16px] leading-[21px]">Peso: {{pkmDetails?.weight}} lbs</p>
+      </div>
+      <button class="w-[300px] h-[40px] bg-black rounded-lg"></button>
+    </div>
+  </div>
+</div>
+
+<!-- <p class="font-normal text-[12px] leading-[15.96px]">{{pkm.id | leadingZeros:4}}</p> -->
+
+

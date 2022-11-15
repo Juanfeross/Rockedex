@@ -1,11 +1,11 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async } from '@angular/core/testing';
-import { OrderListPipe } from './order-list.pipe';
+import { LeadingZerosPipe } from './leading-zeros.pipe';
 
-describe('Pipe: OrderListe', () => {
+describe('Pipe: LeadingZerose', () => {
   it('create an instance', () => {
-    let pipe = new OrderListPipe();
+    let pipe = new LeadingZerosPipe();
     expect(pipe).toBeTruthy();
   });
 });

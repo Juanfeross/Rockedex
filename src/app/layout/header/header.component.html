@@ -2,12 +2,12 @@
   <nav class="max-w-[1366px] w-full">
     <ul class="flex justify-between place-items-center pt-[19px]">
       <li class="pl-[16px]">
-        <a href="#">
+        <a [routerLink]="'/home'">
           <lib-pkm-top-bar [logo]="'/assets/icons/logo.svg'"></lib-pkm-top-bar>
         </a>
       </li>
       <li class="pr-[24px]">
-        <a href="#">
+        <a [routerLink]="'/pkm-favorites'">
           <img src="/assets/icons/heart-filled.svg" alt="Pokemones Favoritos">
           <div class="w-6 h-6 bg-[#EF4444] rounded-full absolute"></div>
         </a>

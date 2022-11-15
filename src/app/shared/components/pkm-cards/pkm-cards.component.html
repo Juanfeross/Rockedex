@@ -1,0 +1,16 @@
+<div *ngIf="pkm">
+  <div class="relative h-[206px] py-4 px-2 rounded-lg bg-white flex flex-col tablet:flex-row tablet:h-[130px]">
+    <lib-pkm-fav-button class="absolute top-2.5 right-2.5" (isChecked)="changeFavorites($event)"></lib-pkm-fav-button>
+    <div class="flex justify-center tablet:justify-start" [routerLink]="'/pkm-details/' + pkm.id">
+      <img class="w-24 h-24 tablet:mx-7 cursor-pointer" [src]="pkm.sprites.other['official-artwork'].front_default" alt="">
+    </div>
+    <div class="pt-1 tablet:pt-2 tablet:pb-4">
+      <p class="font-normal text-[12px] leading-[15.96px]">{{pkm.id | leadingZeros:4}}</p>
+      <h2 class="font-bold text-[16px] leading-[21.28px]">{{pkm.name | titlecase}}</h2>
+      <div class="inline-block bg-[#E5E7EB] px-2 py-1 rounded mt-2 mr-1" *ngFor="let type of pkm.types">
+          <p class="font-normal text-[14px] leading-[19px]">{{type.type.name | titlecase}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
