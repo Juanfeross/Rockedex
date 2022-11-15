@@ -14,4 +14,8 @@ export class PkmButtonComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  public getAction() {
+    this.buttonActions.emit(true);
+  }
 }

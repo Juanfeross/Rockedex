@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IPokemon } from '../../interfaces/pkm-interface/pkm-interface';
+import { PkmFavoritesService } from '../../services/pkm-favorites/pkm-favorites.service';
+import { utils } from '../../../../assets/utils/utils';
 
 @Component({
   selector: 'app-pkm-cards',
@@ -9,8 +11,9 @@ import { IPokemon } from '../../interfaces/pkm-interface/pkm-interface';
 export class PkmCardsComponent implements OnInit {
 @Input() pkm?:IPokemon;
 private pkmFavorites: {id: number, name: string }[] = [];
+private utils = new utils();
 
-  constructor() { }
+  constructor(private pkmFavoritesService: PkmFavoritesService) { }
 
   ngOnInit(): void {
   }
@@ -23,7 +26,8 @@ private pkmFavorites: {id: number, name: string }[] = [];
     if (this.pkm && !isPkmFounded) {
       this.pkmFavorites.push({id: this.pkm.id, name:this.pkm.name});
     }
-    localStorage.setItem('favorites', JSON.stringify(this.pkmFavorites));
+    this.pkmFavoritesService.setFavorites(this.utils.getPkmOrder(this.pkmFavorites));
+    localStorage.setItem('favorites', JSON.stringify(this.utils.getPkmOrder(this.pkmFavorites)));
     console.log(this.pkmFavorites);
   }
 
@@ -39,6 +43,10 @@ private pkmFavorites: {id: number, name: string }[] = [];
       this.pkmFavorites.splice(pkmPosition, 1);
     }
     return pkmPosition !== -1;
+  }
+
+  public addPkmStorage(pkm: IPokemon) {
+    localStorage.setItem('pkmDetails', JSON.stringify(pkm));
   }
 }
 

@@ -1,5 +1,8 @@
 <div class="flex flex-row">
-  <input #inputSearch class="w-[227px] h-10 rounded-lg pl-[13px] font-normal text-[16px] leading-[21.28px] outline-none" type="text" placeholder="Busca un pokemon" (keyup)="onSearch(inputSearch.value)">
-  <lib-pkm-button class="ml-2"></lib-pkm-button>
+  <input #inputSearch
+  class="w-[227px] h-10 rounded-lg pl-[13px] font-normal text-[16px] leading-[21.28px] outline-none"
+  type="text"
+  placeholder="Busca un pokemon">
+  <lib-pkm-button class="ml-2" (buttonActions)="onSearch(inputSearch.value)" [text]="'buscar'" [pkmType]="'primary'"></lib-pkm-button>
 </div>
 

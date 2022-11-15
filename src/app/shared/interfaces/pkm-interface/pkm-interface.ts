@@ -6,6 +6,7 @@ export interface IPokemon {
   weight: number;
   sprites: IPkmSprites;
   types: IPkmType[];
+  isFavorite?: boolean;
 }
 
 export interface IPkmSprites {

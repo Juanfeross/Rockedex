@@ -17,15 +17,14 @@
       </div>
       <div class="flex flex-col justify-start py-4 gap-4">
         <p>{{description}}</p>
-        <p class="font-normal text-[16px] leading-[21px]">ID: {{pkmDetails?.id}}</p>
-        <p class="font-normal text-[16px] leading-[21px]">Altura: {{pkmDetails?.height}} ft</p>
-        <p class="font-normal text-[16px] leading-[21px]">Peso: {{pkmDetails?.weight}} lbs</p>
+        <p class="font-normal text-[16px] leading-[21px]"><span class="font-bold">ID:</span> {{(pkmDetails?.id??0) | leadingZeros:4}}</p>
+        <p class="font-normal text-[16px] leading-[21px]"><span class="font-bold">Altura:</span>{{pkmDetails?.height}} ft</p>
+        <p class="font-normal text-[16px] leading-[21px]"><span class="font-bold">Peso:</span> {{pkmDetails?.weight}} lbs</p>
       </div>
-      <button class="w-full h-[40px] bg-black rounded-lg"></button>
+      <lib-pkm-button class="w-full" [text]="'agregar a favoritos'" [pkmType]="'primary'"></lib-pkm-button>
     </div>
   </div>
 </div>
 
-<!-- <p class="font-normal text-[12px] leading-[15.96px]">{{pkm.id | leadingZeros:4}}</p> -->
 
 

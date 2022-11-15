@@ -15,5 +15,4 @@ constructor() { }
   get OnSearch() {
     return this.onSearch;
   }
-
 }

@@ -16,9 +16,10 @@ public description: string = '';
 
   ngOnInit(): void {
     const id = this.router.snapshot.params['id'];
-    const list: IPokemon[] = JSON.parse(sessionStorage.getItem('pokemons')?? '');
-    this.pkmDetails = list.find(pkm => pkm.id === +id);
-    sessionStorage.getItem('pokemons');
+    this.pkmDetails = JSON.parse(localStorage.getItem('pkmDetails')?? '');
+    // const list: IPokemon[] = JSON.parse(sessionStorage.getItem('pokemons')?? '');
+    // this.pkmDetails = list.find(pkm => pkm.id === +id);
+    // sessionStorage.getItem('pokemons');
     this.getSpecie(id);
   }
 

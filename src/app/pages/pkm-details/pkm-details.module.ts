@@ -8,6 +8,7 @@ import { PkmBackModule } from '../../shared/components/pkm-back/pkm-back.module'
 import { PipesModule } from '../../core/pipes/pipes.module';
 import { HttpClientModule } from '@angular/common/http';
 import { PkmService } from '../../shared/services/pkm-service/pkm.service';
+import { PkmButtonModule } from '../../../../projects/rkt-lib/src/lib/components/pkm-button/pkm-button.module';
 
 
 
@@ -21,7 +22,8 @@ import { PkmService } from '../../shared/services/pkm-service/pkm.service';
     RouterModule,
     HttpClientModule,
     PkmBackModule,
-    PipesModule
+    PipesModule,
+    PkmButtonModule
   ],
   providers: [
     PkmService

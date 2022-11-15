@@ -5,13 +5,16 @@
       <app-pkm-search></app-pkm-search>
     </div>
   </div>
-  <div class="grid grid-cols-12 gap-4 p-4 tablet:pt-[27px] sm-desktop:pt-[25px]">
+  <div infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="50"
+  (scrolled)="onScroll()" class="grid grid-cols-12 gap-4 p-4 tablet:pt-[27px] sm-desktop:pt-[25px]">
     <ng-container  *ngFor="let pkmn of addPkm">
       <app-pkm-cards class="col-span-6 desktop:col-span-4" [pkm]="pkmn"></app-pkm-cards>
     </ng-container>
   </div>
   <div class="flex justify-center px-4 pb-[22px]">
-    <button class="w-[328px] h-[40px] bg-black rounded-lg"></button>
+    <lib-pkm-button class="w-full tablet:w-[100px] desktop:w-[236px]" [text]="'ver más'" [pkmType]="'default'" (buttonActions)="getPokemons(true)"></lib-pkm-button>
   </div>
 </div>
 
