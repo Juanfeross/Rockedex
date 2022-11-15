@@ -10,7 +10,7 @@
         <a class="relative" [routerLink]="'/pkm-favorites'">
           <img src="/assets/icons/heart-filled.svg" alt="Pokemones Favoritos">
           <div class="w-6 h-6 bg-[#EF4444] rounded-full absolute top-[-12px] right-[-14px] flex justify-center items-center">
-            <p>1</p>
+            <p class="font-bold text-[12px] leading-[16px] text-white">{{getFavoritesLength().length}}</p>
           </div>
         </a>
       </li>

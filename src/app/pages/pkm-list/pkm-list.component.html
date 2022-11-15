@@ -8,9 +8,12 @@
   <div infiniteScroll
   [infiniteScrollDistance]="2"
   [infiniteScrollThrottle]="50"
-  (scrolled)="onScroll()" class="grid grid-cols-12 gap-4 p-4 tablet:pt-[27px] sm-desktop:pt-[25px]">
-    <ng-container  *ngFor="let pkmn of addPkm">
-      <app-pkm-cards class="col-span-6 desktop:col-span-4" [pkm]="pkmn"></app-pkm-cards>
+  class="grid grid-cols-12 gap-4 p-4 tablet:pt-[27px] sm-desktop:pt-[25px]">
+    <ng-container *ngIf="addPkm.length == quantityPkm">
+      <app-pkm-cards *ngFor="let pkmn of addPkm" class="col-span-6 desktop:col-span-4" [pkm]="pkmn"></app-pkm-cards>
+    </ng-container>
+    <ng-container *ngIf="addPkm.length !== quantityPkm">
+      <app-pkm-skeleton *ngFor="let pkmn of tempQuantityCards" class="col-span-6 desktop:col-span-4"></app-pkm-skeleton>
     </ng-container>
   </div>
   <div class="flex justify-center px-4 pb-[22px]">

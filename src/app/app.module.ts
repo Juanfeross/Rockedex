@@ -9,6 +9,7 @@ import { PkmLoadingModule } from './shared/components/pkm-loading/pkm-loading.mo
 import { PkmLoadingService } from './shared/services/pkm-loading/pkm-loading.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { InterceptorService } from './core/interceptor/interceptor.interceptor';
+import { PkmSkeletonComponent } from './shared/components/pkm-skeleton/pkm-skeleton.component';
 
 
 @NgModule({

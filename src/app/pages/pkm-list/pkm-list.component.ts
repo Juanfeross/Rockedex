@@ -12,8 +12,11 @@ import { utils } from 'src/assets/utils/utils';
 export class PkmListComponent implements OnInit {
 public addPkm: IPokemon[] = [];
 public tempAddPkm: IPokemon[] = [];
+public quantityPkm = 0;
+public tempQuantityCards: number[] = [];
 private utils = new utils();
-private quantityPkm = 0;
+
+
 
   constructor(private pkmService: PkmService, private pkmSearchService: PkmSearchService) { }
 
@@ -26,6 +29,11 @@ private quantityPkm = 0;
     const quantity = sessionStorage.getItem('quantityPkm') ?? 0;
     this.quantityPkm = +quantity;
     this.tempAddPkm = next ? this.tempAddPkm : [];
+    for (let i = 0; i < this.quantityPkm; i++) {
+      this.tempQuantityCards.push(i);
+
+    }
+    console.log(this.quantityPkm);
     this.pkmService
       .getPokemon(next ? 12 : this.quantityPkm, next ? this.quantityPkm : 0)
       .subscribe((response) => {
@@ -35,6 +43,16 @@ private quantityPkm = 0;
         });
       });
   }
+
+  // onScroll() {
+  //   this.pkmService.getPokemon(next ? 12 : this.quantityPkm, next ? this.quantityPkm : 0)
+  //   .subscribe((response) => {
+  //     response.results.forEach((element) => {
+  //       console.log(this.tempAddPkm);
+  //       this.getPkmDetail(element.url);
+  //     });
+  //   });
+  // }
 
   private getPkmSearch() {
     this.pkmSearchService.OnSearch.subscribe(
@@ -71,7 +89,5 @@ private quantityPkm = 0;
   //   )
   // }
 
-  onScroll() {
-    console.log();
-  }
+
 }

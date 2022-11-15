@@ -9,6 +9,7 @@ import { PkmButtonModule, PkmFavButtonModule } from 'projects/rkt-lib/src/public
 import { PkmSearchModule } from 'src/app/shared/components/pkm-search/pkm-search.module';
 import { PkmCardsModule } from 'src/app/shared/components/pkm-cards/pkm-cards.module';
 import { InfiniteScrollModule } from "ngx-infinite-scroll";
+import { PkmSkeletonModule } from '../../shared/components/pkm-skeleton/pkm-skeleton.module';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { InfiniteScrollModule } from "ngx-infinite-scroll";
     PkmCardsModule,
     PkmSearchModule,
     InfiniteScrollModule,
-    PkmButtonModule
+    PkmButtonModule,
+    PkmSkeletonModule
   ],
   exports: [
     PkmListComponent
