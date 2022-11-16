@@ -49,7 +49,7 @@ private onDestroy$ = new Subject<boolean>();
   }
 
   onScroll(): void {
-
+    this.getPokemons(true);
   }
 
   private getPkmSearch() {
