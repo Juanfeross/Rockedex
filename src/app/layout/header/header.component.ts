@@ -14,8 +14,9 @@ export class HeaderComponent implements OnInit {
     this.getFavoritesLength();
   }
 
-  public getFavoritesLength() {
-    const favPokemons: IPokemon[] = JSON.parse(localStorage.getItem('favorites')?? '');
+  public getFavoritesLength(): IPokemon[] {
+    const favorites = localStorage.getItem('favorites');
+    const favPokemons: IPokemon[] = favorites?JSON.parse(favorites): [];
     return favPokemons;
   }
 }
