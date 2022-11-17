@@ -4,7 +4,7 @@ import { IPokemon } from '../../shared/interfaces/pkm-interface/pkm-interface';
 import { PkmSearchService } from 'src/app/shared/services/pkm-search/pkm-search.service';
 import { utils } from 'src/assets/utils/utils';
 import { IPkmPokemons } from '../../shared/interfaces/pkm-pokemons/pkm-pokemons';
-import { Subject, takeUntil } from 'rxjs';
+import { catchError, of, Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-pkm-list',
@@ -17,6 +17,7 @@ public tempAddPkm: IPokemon[] = [];
 public quantityPkm = 0;
 public tempQuantityPkm = 0;
 public tempQuantityCards: number[] = [];
+public errorSearch = false;
 private utils = new utils();
 private onDestroy$ = new Subject<boolean>();
 
@@ -66,19 +67,29 @@ private onDestroy$ = new Subject<boolean>();
   }
 
   private getPkmDetail(url: string = '', isPath: boolean = false) {
-    this.pkmService.getPokemonId(url, isPath).pipe(takeUntil(this.onDestroy$)).subscribe((response) => {
-      response.isFavorite = this.favoritesInList(response.id);
-      this.tempAddPkm.push(response);
-      if (this.tempAddPkm.length === this.quantityPkm) {
-        this.addPkm = this.utils.getPkmOrder(this.tempAddPkm);
-        if (this.addPkm.length > 1) {
-          sessionStorage.setItem(
-            'quantityPkm',
-            JSON.stringify(this.addPkm.length)
-          );
-        }
+    this.pkmService.getPokemonId(url, isPath)
+    .pipe(
+      takeUntil(this.onDestroy$))
+    .subscribe(
+      {
+        next: (response) => {
+          this.errorSearch = false;
+          response.isFavorite = this.favoritesInList(response.id);
+          this.tempAddPkm.push(response);
+          if (this.tempAddPkm.length === this.quantityPkm) {
+            this.addPkm = this.utils.getPkmOrder(this.tempAddPkm);
+            if (this.addPkm.length > 1) {
+              sessionStorage.setItem(
+                'quantityPkm',
+                JSON.stringify(this.addPkm.length)
+              );
+            }
+          }
+        },
+        error: err => this.errorSearch = true,
+        complete: () => console.log('final')
       }
-    });
+    );
   }
 
   private validateSkeleton() {

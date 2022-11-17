@@ -15,13 +15,7 @@ export class PkmSearchComponent implements OnInit {
   }
 
   onSearch(value:string) {
-    if (value && value.length > 0) {
-      this.pkmSearchService.search(value.toLowerCase());
-    }
-
-    else {
-      this.pkmSearchService.search('');
-    }
+    this.pkmSearchService.search(value.toLowerCase());
   }
 
 }

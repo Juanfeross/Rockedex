@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PkmLoadingComponent } from './pkm-loading.component';
+import { PkmEmptyComponent } from './pkm-empty.component';
 
 
 
 @NgModule({
   declarations: [
-    PkmLoadingComponent
+    PkmEmptyComponent
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    PkmLoadingComponent
+    PkmEmptyComponent
   ]
 })
-export class PkmLoadingModule { }
+export class PkmEmptyModule { }

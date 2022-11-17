@@ -10,6 +10,7 @@ import { PkmSearchModule } from 'src/app/shared/components/pkm-search/pkm-search
 import { PkmCardsModule } from 'src/app/shared/components/pkm-cards/pkm-cards.module';
 import { InfiniteScrollModule } from "ngx-infinite-scroll";
 import { PkmSkeletonModule } from '../../shared/components/pkm-skeleton/pkm-skeleton.module';
+import { PkmEmptyModule } from '../../shared/components/pkm-empty/pkm-empty.module';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { PkmSkeletonModule } from '../../shared/components/pkm-skeleton/pkm-skel
     PkmSearchModule,
     InfiniteScrollModule,
     PkmButtonModule,
-    PkmSkeletonModule
+    PkmSkeletonModule,
+    PkmEmptyModule
   ],
   exports: [
     PkmListComponent

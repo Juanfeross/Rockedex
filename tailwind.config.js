@@ -9,7 +9,11 @@ module.exports = {
       'sm-desktop': '1024px',
       'desktop': '1130px'
     },
-    extend: {},
+    extend: {
+      animation: {
+        'spin-slow': 'spin 3s linear infinite'
+      }
+    },
   },
   plugins: [],
 }

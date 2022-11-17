@@ -5,11 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { RktLibModule } from '../../projects/rkt-lib/src/lib/rkt-lib.module';
-import { PkmLoadingModule } from './shared/components/pkm-loading/pkm-loading.module';
-import { PkmLoadingService } from './shared/services/pkm-loading/pkm-loading.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { InterceptorService } from './core/interceptor/interceptor.interceptor';
-import { PkmSkeletonComponent } from './shared/components/pkm-skeleton/pkm-skeleton.component';
+import { PkmEmptyComponent } from './shared/components/pkm-empty/pkm-empty.component';
 
 
 @NgModule({
@@ -21,16 +18,9 @@ import { PkmSkeletonComponent } from './shared/components/pkm-skeleton/pkm-skele
     AppRoutingModule,
     LayoutModule,
     RktLibModule,
-    PkmLoadingModule,
     HttpClientModule
   ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: InterceptorService,
-      multi: true,
-    }
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

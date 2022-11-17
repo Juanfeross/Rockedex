@@ -11,14 +11,17 @@
   (scrolled)="onScroll()"
   class="grid grid-cols-12 gap-4 p-4 tablet:pt-[27px] sm-desktop:pt-[25px]"
   >
-    <ng-container>
+    <ng-container *ngIf="!errorSearch">
       <app-pkm-cards *ngFor="let pkmn of addPkm" class="col-span-6 desktop:col-span-4" [pkm]="pkmn"></app-pkm-cards>
     </ng-container>
-    <ng-container *ngIf="addPkm.length !== quantityPkm">
+    <ng-container *ngIf="addPkm.length !== quantityPkm && !errorSearch">
       <app-pkm-skeleton *ngFor="let pkmn of tempQuantityCards" class="col-span-6 desktop:col-span-4"></app-pkm-skeleton>
     </ng-container>
+    <ng-container *ngIf="errorSearch">
+      <app-pkm-empty class="col-span-12"></app-pkm-empty>
+    </ng-container>
   </div>
-  <div class="flex justify-center px-4 pb-[22px]">
+  <div *ngIf="!errorSearch" class="flex justify-center px-4 pb-[22px]">
     <lib-pkm-button class="w-full tablet:w-[100px] desktop:w-[236px]" [text]="'ver más'" [pkmType]="'default'" (buttonActions)="getPokemons(true)"></lib-pkm-button>
   </div>
 </div>
