@@ -7,8 +7,8 @@ import { IPkmPokemons } from '../../interfaces/pkm-pokemons/pkm-pokemons';
   providedIn: 'root'
 })
 export class PkmFavoritesService {
-private onFavorites: EventEmitter <IPkmPokemons[]> = new EventEmitter <IPkmPokemons[]> ();
-private utils = new utils();
+  private onFavorites: EventEmitter <IPkmPokemons[]> = new EventEmitter <IPkmPokemons[]> ();
+  private utils = new utils();
 
   constructor() { }
 

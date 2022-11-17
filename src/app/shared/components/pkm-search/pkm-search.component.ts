@@ -8,14 +8,21 @@ import { PkmSearchService } from '../../services/pkm-search/pkm-search.service';
   styleUrls: ['./pkm-search.component.scss']
 })
 export class PkmSearchComponent implements OnInit {
+  public searchValue = '';
 
   constructor(private router:Router, private pkmSearchService: PkmSearchService) { }
 
   ngOnInit(): void {
   }
 
-  onSearch(value:string) {
-    this.pkmSearchService.search(value.toLowerCase());
+  onSearch() {
+    this.searchValue = this.searchValue.trim();
+    const toNumber = parseInt(this.searchValue, 10);
+    if (toNumber) {
+      this.pkmSearchService.search(toNumber.toString());
+    }
+    else {
+      this.pkmSearchService.search(this.searchValue.toLowerCase());
+    }
   }
-
 }

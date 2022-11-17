@@ -9,7 +9,7 @@ import { utils } from '../../../../assets/utils/utils';
   styleUrls: ['./pkm-cards.component.scss']
 })
 export class PkmCardsComponent implements OnInit {
-@Input() pkm?:IPokemon;
+  @Input() pkm?:IPokemon;
 
   constructor(private pkmFavoritesService: PkmFavoritesService) { }
 

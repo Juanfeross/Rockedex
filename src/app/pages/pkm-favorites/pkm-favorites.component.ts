@@ -12,9 +12,9 @@ import { IPkmPokemons } from '../../shared/interfaces/pkm-pokemons/pkm-pokemons'
   styleUrls: ['./pkm-favorites.component.scss']
 })
 export class PkmFavoritesComponent implements OnInit, OnDestroy {
-public pokemonFavList: IPokemon[] = [];
-private utils = new utils();
-private onDestroy$ = new Subject<boolean>();
+  public pokemonFavList: IPokemon[] = [];
+  private utils = new utils();
+  private onDestroy$ = new Subject<boolean>();
 
   constructor(private pkmFavoritesService: PkmFavoritesService, private pkmService: PkmService) { }
 

@@ -12,14 +12,15 @@ import { catchError, of, Subject, takeUntil } from 'rxjs';
   styleUrls: ['./pkm-list.component.scss']
 })
 export class PkmListComponent implements OnInit, OnDestroy {
-public addPkm: IPokemon[] = [];
-public tempAddPkm: IPokemon[] = [];
-public quantityPkm = 0;
-public tempQuantityPkm = 0;
-public tempQuantityCards: number[] = [];
-public errorSearch = false;
-private utils = new utils();
-private onDestroy$ = new Subject<boolean>();
+  public addPkm: IPokemon[] = [];
+  public tempAddPkm: IPokemon[] = [];
+  public quantityPkm = 0;
+  public tempQuantityPkm = 0;
+  public tempQuantityCards: number[] = [];
+  public errorSearch = false;
+  public isMorePokemon = false;
+  private utils = new utils();
+  private onDestroy$ = new Subject<boolean>();
 
 
 
@@ -35,6 +36,7 @@ private onDestroy$ = new Subject<boolean>();
   }
 
   public getPokemons(next?: boolean) {
+    this.isMorePokemon = next?? false;
     const quantity = sessionStorage.getItem('quantityPkm') ?? 0;
     const offset = next ? this.quantityPkm: 0;
     this.quantityPkm = (+quantity === 0?12:+quantity) + (next ?12:0);
@@ -57,11 +59,16 @@ private onDestroy$ = new Subject<boolean>();
   private getPkmSearch() {
     this.pkmSearchService.OnSearch.pipe(takeUntil(this.onDestroy$)).subscribe(
       response => {
-        this.quantityPkm = 1;
         this.tempAddPkm = [];
-        this.validateSkeleton();
         this.addPkm = [];
-        this.getPkmDetail('pokemon/' + response, true);
+        if (response) {
+          this.quantityPkm = 1;
+          this.validateSkeleton();
+          this.getPkmDetail('pokemon/' + response, true);
+        }
+        else {
+          this.getPokemons();
+        }
       }
     )
   }

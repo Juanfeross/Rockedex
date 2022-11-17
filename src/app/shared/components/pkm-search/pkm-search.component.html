@@ -3,7 +3,8 @@
   class="w-[227px] h-10 rounded-lg pl-[13px] font-normal text-[16px] leading-[21.28px] outline-none"
   type="text"
   placeholder="Busca un pokemon"
+  [(ngModel)]="searchValue"
   >
-  <lib-pkm-button class="ml-2" (buttonActions)="onSearch(inputSearch.value)" [text]="'buscar'" [pkmType]="'primary'"></lib-pkm-button>
+  <lib-pkm-button class="ml-2" (buttonActions)="onSearch()" [text]="'buscar'" [pkmType]="'primary'"></lib-pkm-button>
 </div>
 

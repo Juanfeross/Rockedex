@@ -21,7 +21,7 @@
       <app-pkm-empty class="col-span-12"></app-pkm-empty>
     </ng-container>
   </div>
-  <div *ngIf="!errorSearch" class="flex justify-center px-4 pb-[22px]">
+  <div *ngIf="!errorSearch && !isMorePokemon" class="flex justify-center px-4 pb-[22px]">
     <lib-pkm-button class="w-full tablet:w-[100px] desktop:w-[236px]" [text]="'ver más'" [pkmType]="'default'" (buttonActions)="getPokemons(true)"></lib-pkm-button>
   </div>
 </div>

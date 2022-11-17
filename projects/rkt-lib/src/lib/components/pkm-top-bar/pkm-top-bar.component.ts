@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./pkm-top-bar.component.css']
 })
 export class PkmTopBarComponent implements OnInit {
-@Input() logo: string = '';
+  @Input() logo: string = '';
 
   constructor() { }
 

@@ -11,10 +11,10 @@ import { PkmFavoritesService } from '../../shared/services/pkm-favorites/pkm-fav
   styleUrls: ['./pkm-details.component.scss']
 })
 export class PkmDetailsComponent implements OnInit, OnDestroy {
-public pkmDetails?: IPokemon;
-public description: string = '';
-public textButton: string = 'agregar a favoritos';
-private onDestroy$ = new Subject<boolean>();
+  public pkmDetails?: IPokemon;
+  public description: string = '';
+  public textButton: string = 'agregar a favoritos';
+  private onDestroy$ = new Subject<boolean>();
 
   constructor(private router: ActivatedRoute, private pkmService: PkmService, private pkmFavoritesService: PkmFavoritesService ) { }
 
@@ -23,8 +23,11 @@ private onDestroy$ = new Subject<boolean>();
     const details = localStorage.getItem('pkmDetails');
     this.pkmDetails = details?JSON.parse(details): '';
     this.getSpecie(id);
-    if (this.pkmDetails) {
-      this.textButton = this.pkmFavoritesService.getFavoritesLoop(this.pkmDetails)?'eliminar de favoritos': 'agregar a favoritos';
+    if (!this.pkmDetails) {
+      this.getPkmDetail('pokemon/' + id);
+    }
+    else {
+      this.getTextButton();
     }
   }
 
@@ -49,6 +52,21 @@ private onDestroy$ = new Subject<boolean>();
   public getFavoritesActButton() {
     if (this.pkmDetails) {
       this.pkmFavoritesService.changeFavorites(this.pkmDetails.isFavorite?? false, this.pkmDetails);
+      this.getTextButton();
+    }
+  }
+
+  private getPkmDetail(url: string = '') {
+    this.pkmService.getPokemonId(url).pipe(takeUntil(this.onDestroy$)).subscribe(
+      response => {
+        this.pkmDetails = response;
+        this.getTextButton();
+      }
+    )
+  }
+
+  private getTextButton() {
+    if (this.pkmDetails) {
       this.textButton = this.pkmFavoritesService.getFavoritesLoop(this.pkmDetails)?'eliminar de favoritos': 'agregar a favoritos';
     }
   }
