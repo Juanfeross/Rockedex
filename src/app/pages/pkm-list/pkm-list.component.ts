@@ -87,7 +87,6 @@ private onDestroy$ = new Subject<boolean>();
           }
         },
         error: err => this.errorSearch = true,
-        complete: () => console.log('final')
       }
     );
   }
