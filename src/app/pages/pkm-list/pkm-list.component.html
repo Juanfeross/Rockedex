@@ -6,12 +6,12 @@
     </div>
   </div>
   <div infiniteScroll
-  [infiniteScrollDistance]="2"
+  [infiniteScrollDistance]="1"
   [infiniteScrollThrottle]="50"
   (scrolled)="onScroll()"
   class="grid grid-cols-12 gap-4 p-4 tablet:pt-[27px] sm-desktop:pt-[25px]"
   >
-    <ng-container *ngIf="addPkm.length == quantityPkm">
+    <ng-container>
       <app-pkm-cards *ngFor="let pkmn of addPkm" class="col-span-6 desktop:col-span-4" [pkm]="pkmn"></app-pkm-cards>
     </ng-container>
     <ng-container *ngIf="addPkm.length !== quantityPkm">

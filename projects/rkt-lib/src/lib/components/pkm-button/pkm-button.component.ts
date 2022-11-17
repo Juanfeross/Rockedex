@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class PkmButtonComponent implements OnInit {
 @Input() pkmType: 'primary' | 'default' = 'default';
 @Input() text: string = '';
+@Input() favorite?: boolean;
 @Output() buttonActions = new EventEmitter <boolean>();
 
   constructor() { }

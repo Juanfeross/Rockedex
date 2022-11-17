@@ -15,6 +15,7 @@ export class PkmListComponent implements OnInit, OnDestroy {
 public addPkm: IPokemon[] = [];
 public tempAddPkm: IPokemon[] = [];
 public quantityPkm = 0;
+public tempQuantityPkm = 0;
 public tempQuantityCards: number[] = [];
 private utils = new utils();
 private onDestroy$ = new Subject<boolean>();

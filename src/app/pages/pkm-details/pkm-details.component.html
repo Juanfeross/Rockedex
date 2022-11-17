@@ -18,8 +18,8 @@
       <div class="flex flex-col justify-start py-4 gap-4">
         <p>{{description}}</p>
         <p class="font-normal text-[16px] leading-[21px]"><span class="font-bold">ID:</span> {{(pkmDetails?.id??0) | leadingZeros:4}}</p>
-        <p class="font-normal text-[16px] leading-[21px]"><span class="font-bold">Altura:</span>{{pkmDetails?.height}} ft</p>
-        <p class="font-normal text-[16px] leading-[21px]"><span class="font-bold">Peso:</span> {{pkmDetails?.weight}} lbs</p>
+        <p class="font-normal text-[16px] leading-[21px]"><span class="font-bold">Altura:</span> {{pkmDetails?.height}}</p>
+        <p class="font-normal text-[16px] leading-[21px]"><span class="font-bold">Peso:</span> {{pkmDetails?.weight}}</p>
       </div>
       <lib-pkm-button class="w-full" [text]="'agregar a favoritos'" [pkmType]="'primary'"></lib-pkm-button>
     </div>
